@@ -1,0 +1,57 @@
+create client--
+create react project in client
+npm uninstall -g create-react-app
+npx create-react-app app 
+cd app 
+npm install axios react-router-dom
+npm install react-bootstrap bootstrap table 
+ or npm install react-bootstrap table 
+npm i react-toastify
+in app.js
+import { ToastContainer, toast } from 'react-toastify';
+
+<ToastContainer />
+toast.error("Email or phone already Exist !")
+toast.success(" Data Deleted successfully  !");
+
+
+in src/index.js file ->
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle';
+
+npm start
+
+djmyapp -> 
+
+urls.py
+from django.conf import settings
+from django.conf.urls.static import static 
+
+admin.site.site_header = "Dave Webdevelopment"
+admin.site.index_title = "Welcome to Dave Website"
+admin.site.site_title = "Welcome to Tutorial"
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',home),
+    path('index/',home),
+    path('about/',about),
+    path('services/',services),
+    path("emp/",include('emp.urls'))
+]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+
+in settings 
+
+import os 
+MEDIA_URL="/media/"
+MEDIA_ROOT= os.path.join(BASE_DIR,'media')
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # React frontend URL
+]
+----------------------
+feed back and testimonials and 
+
+ALL TABLE'S ARE 
+
+ also CRUD  by admin pannel 
