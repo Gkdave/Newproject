@@ -45,4 +45,16 @@ def user_logout(request):
     return redirect('login') 
 
 def change_password(request):
-    pass 
+    if request.method=="POST":
+        form=PasswordChangeForm(request.user,request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,"Your password has been changed")
+            return redirect('/')
+
+        else:
+            messages.warning(request,'Error')
+            return redirect("change_password")
+    else:
+        form=PasswordChangeForm(request.user)
+        return render(request,'user/change_password.html',{'PasswordChangeForm':form})
