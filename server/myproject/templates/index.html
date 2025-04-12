@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}
+       home page 
+{% endblock %}
+
+
+{% block content %}
+    <div class="container" style="text-align:center;"> 
+    <h2>Welcome to our Website</h2>
+    <div>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="name">
+        <input type="checkbox" name="check" name="name">
+        <button>Send</button>
+    </form>
+    <p>Django is a high-level Python web framework that promotes rapid development and clean, pragmatic design. It follows the model-template-views (MTV) architectural pattern and is maintained by the Django Software Foundation..</p>
+
+    {% if isActive %}
+</div> 
+<div>
+    <h4>Today date is:- {{date}}</h4>
+    <h4>Name is : {{name}}</h4>
+    <hr>
+    <h3> Student data</h3>
+    <h5> student college : {{student_data.student_college}}</h5>
+    <h5>Student Name :- {{student_data.student_name}}</h5>
+    <h5> student city : {{student_data.student_city}}</h5>
+    <hr>
+    <h3>Favorate Programms</h3>
+    {% for p in list_of_programs%}
+    <h5>{{p}}</h5>
+    {% endfor %}
+    {% endif %}
+{% endblock content %}
+                    
