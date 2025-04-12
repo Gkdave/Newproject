@@ -6,4 +6,4 @@ from .forms import EmpForm,FeedbackForm
 
 def employee(request):
     emps=Emp.objects.all()
-    return render(request,"emp/home.html")
+    return render(request,"emp/home.html",{'emps':emps})

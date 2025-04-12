@@ -4,7 +4,7 @@ from django.db import models
 class Emp(models.Model):
     name=models.CharField(max_length=200)
     emp_id=models.IntegerField()
-    phone=models.BigIntergerField()
+    phone=models.BigIntegerField()
     address=models.CharField(max_length=200)
     working=models.BooleanField(default=True)
     department=models.CharField(max_length=200)

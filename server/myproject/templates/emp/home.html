@@ -1,1 +1,64 @@
- 
+ {% extends 'base.html' %}
+        {% block title %}
+            |home
+        {% endblock title %}
+             
+    
+{% block content %}
+        
+     <h1 class="text-center my-3">Employee Management</h1>
+    <h1 class="text-center my-3">List of Employee </h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#SNO.</th>
+                                    <th>NAME</th>
+                                    <th>Emp ID.</th>
+                                    <th>PHONE</th>
+                                    <th>WORKING</th>
+                                    <th>DEPARTMENT</th>
+                                    <th>ADDRESS</th>
+                                    <th>ACTION</th>
+                                </tr>
+
+                            </thead>
+                         
+                            <tbody>
+                                {% for e in emp %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{e.name}}</td>
+                                        <td>{{e.emp_id}}</td>
+                                        <td>{{e.phone}}</td>
+                                        <td>{{e.working}}</td>
+                                        <td>{{e.department}}</td>
+                                        <td>{{e.address}}</td>
+                                        <td>
+                                            <a href="/emp/delete-emp/{{e.id}}" class="btn btn-danger btn-sm">Delete</a>
+                                            <a href="/emp/update-emp/{{e.id}}" class="btn btn-success btn-sm">Update</a>
+                                        </td>
+                                        <td> </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    
+    {% endblock content %}
+        
+
+   
