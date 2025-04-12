@@ -8,12 +8,12 @@ from django.contrib.auth.forms import PasswordChangeForm
 
 def user_register(request):
     if request.method=="POST":
-        fname=request.POST.get['firstname']
-        lname=request.POST.get['lastname']
-        uname=request.POST.get['username']
-        email=request.POST.get['email']
-        pass1=request.POST.get['password1']
-        pass2=request.POST.get['password2']
+        fname=request.POST.get('firstname')
+        lname=request.POST.get('lastname')
+        uname=request.POST.get('username')
+        email=request.POST.get('email')
+        pass1=request.POST.get('password1')
+        pass2=request.POST.get('password2')
         if pass1 !=pass2 :
             messages.warning(request,"password does not match")
             return redirect('register')
@@ -21,7 +21,7 @@ def user_register(request):
             messages.warning(request,'email already taken')
             return redirect('register')
         else:
-            user=User.objects.create_user(first_name=fname,last_name=lname,email=email,password=pass1)
+            user=User.objects.create_user(first_name=fname,last_name=lname,username=uname,email=email,password=pass1)
             user.save()
             messages.success(request,"user has been register successfully")
             return redirect('login')
@@ -31,12 +31,12 @@ def user_login(request):
     if request.method=="POST":
         username=request.POST['username']
         password=request.POST['password']
-        user=authenticate(request,password=password)
+        user=authenticate(request,username=username,password=password)
         if user is not None:
             login(request,user)
-            return redirect('home')
+            return redirect('/emp/home/')
         else:
-            message.warning(request,"Invalid Credentials")
+            messages.warning(request,"Invalid Credentials")
             return redirect('login')
     return render(request,'user/login.html')
     

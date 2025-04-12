@@ -89,3 +89,25 @@ def testimonials(request):
 def feedback(request):
     forms=Feedback.objects.all()
     return render(request,'emp/feedback.html',{'form':forms})
+
+
+def delete_feedback(request,id):
+    print(id)
+    fd=Feedback.objects.get(pk=id)
+    fd.delete()
+    return redirect('/emp/feedback/')
+   
+def do_feedback(request):
+    if request.method=="POST":
+        email=request.POST.get('email')
+        name=request.POST.get('name')
+        feedback=request.POST.get('feedback')
+        f=Feedback()
+        f.name=name
+        f.email=email
+        f.feedback=feedback
+        f.save()
+        return redirect('/emp/feedback/')
+    else:
+        form=FeedbackForm()
+        return render(request,"emp/do_feedback.html",{'form':form})

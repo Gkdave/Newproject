@@ -9,5 +9,7 @@ urlpatterns = [
     path('do-update-emp/<int:emp_id>',do_update_emp),
     path('testimonials/',testimonials),
     path('feedback/',feedback),
+    path('do-feedback/',do_feedback),
+    path('delete-feedback/<int:id>/',delete_feedback),
 
 ]

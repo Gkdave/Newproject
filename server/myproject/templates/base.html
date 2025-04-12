@@ -13,48 +13,64 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Myapp</a>
+    <a class="navbar-brand" href="#">Employee Management</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="/emp/home/">Employee</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/user/register">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/user/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/user/logout">Logout</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/user/change-password">Change_Password</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/emp/add-emp/">add employee</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/emp/testimonials/">Testimonials</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/emp/feedback/">feedback</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Myapp
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/">home</a></li>
-            <li><a class="dropdown-item" href="/abt">About</a></li>
-            <li><a class="dropdown-item" href="/serv/">Services</a></li>
-            <li><hr class="dropdown-divider"></li>
-            
-          </ul>
-        </li>
+        {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="/"> {{ request.user }}</a>
+              </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="/emp/add-emp/">add employee</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/emp/testimonials/">Testimonials</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/emp/feedback/">feedback</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/emp/do-feedback/">Add-feedback</a>
+              </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Home Page 
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/">home</a></li>
+                <li><a class="dropdown-item" href="/abt">About</a></li>
+                <li><a class="dropdown-item" href="/serv/">Services</a></li>
+                <li><hr class="dropdown-divider"></li>
+                
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/user/change-password">Change_Password</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/user/logout">Logout</a>
+            </li>
+
+        {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="/user/register">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/user/login">Login</a>
+              </li>
+        {% endif %}
+        
+        
+        
+       
+        
+        
         
       </ul>
       {% comment %} <form class="d-flex" role="search">

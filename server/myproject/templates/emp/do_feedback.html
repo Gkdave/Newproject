@@ -1,0 +1,54 @@
+{% extends '../base.html' %}
+
+{% block title %}
+     || feedback
+{% endblock title %}
+
+
+
+
+{% block content %}
+     <h1 class="text-center my-3"> Add feedback </h1>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md offset-md-3">
+                    <div class="card bg-dark text-white">
+                <div class="card-body">
+                    <form action="/emp/do-feedback/" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Enter name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="id">Email</label>
+                            <input id="id" type="email" class="form-control" placeholder="Eamil" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="feedback">Feedback</label>
+                            <input id="phone" type="text" class="form-control" placeholder="feedback"
+                            name="feedback">
+                        </div>
+                        
+                        <div class="container text-center">
+                            <button class="btn btn-primary">Add feedback</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+                </div>
+            </div>
+        </div>
+    
+{% endblock content %}
+    
+    
+       
+
+
+    
+
+    
+    
