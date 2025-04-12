@@ -11,3 +11,6 @@ class EmpAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Emp,EmpAdmin)
+# admin.site.register(Emp)
+admin.site.register(Testimonial)
+admin.site.register(Feedback)

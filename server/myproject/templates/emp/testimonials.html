@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    |Testimonials
+{% endblock title %}
+    
+
+
+{% block content %}
+  <h1 class="text-center my-3">Testimonials</h1>
+    <h1 class="text-center my-3">List of Employees </h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#SNO.</th>
+                    <th>NAME</th>
+                    <th>Testimonials</th>
+                    <th>Rating</th>
+                    
+ 
+                  </tr>
+                </thead>
+                <tbody>
+                 {% for t in testi %}
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>
+                        <img style="max-width:150px;" src="/media/{{t.picture}}" alt="">
+                        {{t.name}}</td>
+                    <td>{{t.Testimonial}}</td>
+                    <td>{{t.rating}}</td>
+                    
+                  </tr>
+                 {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endblock content %}
+    

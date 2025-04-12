@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    feedback 
+{% endblock title %}
+    
+
+{% block content %}
+        
+     <h1 class="text-center my-3">Feedback</h1>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#SNO.</th>
+                                    <th>NAME</th>
+                                    <th>Email</th>
+                                    <th>Feedback</th>
+                                    
+                                </tr>
+
+                            </thead>
+                         
+                            <tbody>
+                                {% for f in form %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{f.email}}</td>
+                                        <td>{{f.name}}</td>
+                                        <td>{{f.feedback}}</td>
+                                        
+                                        <td>
+                                            <a href="/emp/delete-feedback/{{f.id}}" class="btn btn-danger btn-sm">Delete</a>
+                                            {% comment %} <a href="/emp/update-emp/{{f.id}}" class="btn btn-success btn-sm">Update</a> {% endcomment %}
+                                        </td>
+                                        <td> </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    
+    {% endblock content %}
+        
+
+   
+
+    
+
