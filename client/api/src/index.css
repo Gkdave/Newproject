@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#edit {
+  background-color: aqua;
+  color: black;
+  padding-right: 34px;
+}
+
+#btn-del {
+  background-color: red;
+  color: black;
+}
+
+#btn-crt {
+  background-color: burlywood;
+  color: black;
+}
