@@ -7,17 +7,23 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const EmployeeList = ({ onEdit }) => {
     const [Employees, setEmployees] = useState([]);
+    //  console.log(Employees);
     useEffect(() => {
         fetchEmployees();
+        
     }, []);
+
     const fetchEmployees = async () => {
         const response = await getEmployees();
+        // console.log(response.data);
         setEmployees(response.data);
+        
     };
+
     const handleDelete = async (id) => {
         await deleteEmployee(id);
         fetchEmployees();
-        toast.success("DATA deleted successfull !!");
+        toast.success("Data deleted  successfull !!!");
     };
     return (
         <>
@@ -31,11 +37,11 @@ const EmployeeList = ({ onEdit }) => {
                                 <tr>
                                     <th>id</th>
                                     <th>Name</th>
-                                    <th>Emp_ID</th>
-                                    <th>phone</th>
+                                    <th>Email</th>
+                                    <th>Sallary</th>
+                                    <th>Phone</th>
                                     <th>Address</th>
-                                    <th>Working</th>
-                                    <th>Department</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,11 +49,11 @@ const EmployeeList = ({ onEdit }) => {
                                     <tr key={employee.id}>
                                         <td>{employee.id}</td>
                                         <td>{employee.name}</td>
-                                        <td>{employee.emp_id}</td>
+                                        <td>{employee.email}</td>
+                                        <td>{employee.sallary}</td>
                                         <td>{employee.phone}</td>
                                         <td>{employee.address}</td>
-                                        <td>{employee.working}</td>
-                                        <td>{employee.department}</td>
+                                        
                                         <td>
                                             <button id="edit" onClick={() => onEdit(employee)}>Edit</button>
                                             <button id="btn-del" onClick={() => handleDelete(employee.id)}>Delete</button>

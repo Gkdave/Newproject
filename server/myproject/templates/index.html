@@ -1,36 +1,343 @@
 {% extends "base.html" %}
+
 {% block title %}
        home page 
 {% endblock %}
 
 
 {% block content %}
-    <div class="container" style="text-align:center;"> 
-    <h2>Welcome to our Website</h2>
-    <div>
-    <form action="" method="post">
-        {% csrf_token %}
-        <input type="text" name="name">
-        <input type="checkbox" name="check" name="name">
-        <button>Send</button>
-    </form>
-    <p>Django is a high-level Python web framework that promotes rapid development and clean, pragmatic design. It follows the model-template-views (MTV) architectural pattern and is maintained by the Django Software Foundation..</p>
+{% comment %} {% static 'images/gk1.jpeg' %} {% endcomment %}
+  
+<!DOCTYPE html>
+ {% load static %}
+<html>
 
-    {% if isActive %}
-</div> 
-<div>
-    <h4>Today date is:- {{date}}</h4>
-    <h4>Name is : {{name}}</h4>
-    <hr>
-    <h3> Student data</h3>
-    <h5> student college : {{student_data.student_college}}</h5>
-    <h5>Student Name :- {{student_data.student_name}}</h5>
-    <h5> student city : {{student_data.student_city}}</h5>
-    <hr>
-    <h3>Favorate Programms</h3>
-    {% for p in list_of_programs%}
-    <h5>{{p}}</h5>
-    {% endfor %}
-    {% endif %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Personal Informations</title>
+
+
+    <meta name="description" content="personal info">
+    <link rel="stylesheet" href="stylesheet/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Lato|Oswald|Pacifico|Roboto" rel="stylesheet">
+    <style>
+        #container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1100px;
+    background-color:white;
+    }
+
+#header {
+    width: 380px;
+    height: 500px;
+    background-color: ghostwhite;
+    background-image: url(http://www.hdwallpapers.in/walls/steve_jobs-wide.jpg);
+    background-size:cover;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#quote-1 {
+    height: 75px;
+}
+
+p span {
+    border: 0 solid black;
+    padding: 12px;
+    position: relative;
+    background-color: white;
+}
+
+#text {
+    text-align: center;
+    font-family:'Pacifico', cursive;
+    font-size: 25px;
+}
+
+#bio-header {
+    background: url(http://allaboutstevejobs.com/bio/bio-header.jpg) no-repeat;
+    position: relative;
+    top:10px;
+    left:150px;
+}
+
+.subsection-header {
+    line-height: 120px;
+    padding-left: 30px;
+    font-size: 50px;
+    color: #ececec;
+    font-weight: bold;
+    height: 120px;
+    width: 768px;
+}
+
+#content {
+    width: 1100px;
+    height: 900px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color:white;
+}
+
+#main-content {
+    height: 700px;
+    width: 800px;
+    background-color: white;
+    position: relative;
+    top: 25px;
+    left: 10px;
+    font-family: 'Dosis' , sans-serif;
+}
+
+.event-date-first-child {
+    border-top: 1px solid #ccc;
+    margin-top: 0;
+}
+
+.event-date {
+    width: 100px;
+    height:7px;
+    text-align: center;
+    line-height: 26px;
+    float: left;
+    font-size: 14px;
+    border-top: 2px solid #ccc;
+    margin: -1px 0 0 0;
+    padding: 4px 5px 6px 0;
+    clear: left;
+    font-weight: bold;
+}
+
+.event-desc {
+    width: 625px;
+    background: #f9f9f9;
+    float: left;
+    margin: 0;
+    padding: 8px 12px 8px 8px;
+    border-top: 1px solid #ccc;
+    clear: right;
+    font-size: 14px;
+}
+
+.event-desc-nth-child {
+    border-bottom: 1px solid #ccc;
+}
+
+#side-content {
+    height: 700px;
+    width: 290px;
+    background-color: white;
+    float: right;
+    clear: both;
+    position: relative;
+    bottom: 680px;
+}
+
+#second-image {
+    width: 250px;
+    height: 200px;
+    position: relative;
+    top: 7px;
+    float: right;
+    right: 18px;
+}
+
+.info {
+    font-size: 90%;
+    font-family: 'Dosis' , sans-serif;
+    position: relative;
+    margin-bottom: 2em;
+    text-align: center;
+    background-color: white;
+}
+
+.th, .info td {
+    vertical-align: top;
+    border: 0;
+    border-bottom: 1px solid #dddddd;
+    padding: 0.2em;
+}
+
+#nutshell {
+    font-family: 'Lato' , sans-serif;
+    font-weight:bold;
+    font-size: 26px;
+}
+
+#footer {
+    background-color:#ececec;
+    height: 200px;
+}
+
+#quote {
+    font-family: 'Pacifico', cursive;
+    text-align:center;
+    font-size: 24px;
+    position: relative;
+    top:5px;
+    left: 150px;
+}
+
+a {
+    color:dodgerblue;
+    text-decoration:none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+        <div id="header" class="mt-4">
+           <img src="{% static 'images/gk4.jpg' %}" alt="" height="68%"srcset="" class="img-fluid">
+          </div>
+        <!-- header div-->
+
+        <div id="quote-1">
+            <p id="text"><span> The people who  says Work is worship  .</span><br>
+            </p>
+        </div>
+        <div id="content">
+
+            <div class="subsection-header" id="bio-header">
+                TIMELINE
+            </div>
+
+            <div id="main-content">
+                <div class="event-date event-date-first-child">10 Jan 1959</div>
+                <div class="event-desc event-desc-nth-child">Date of birth jauary10,1959.
+                    Gajender Kumar Dave s/o late sh.pannalal ji s/o late sh.Labh shanker ji s/o late sh.Moji ram ji
+                    Mother name Kanku davi d/o late sh.bapu lal ji pandya .
+                    
+                    Goutam gotra </div>
+
+
+                <div class="Secondary Education took at multipurpose High school rati talai Banswara."></div>
+
+                <div class="event-date">1975-1976</div>
+                <div class="event-desc event-desc-nth-child">Mean while in the summer vaction. for three month in each year I have worked at mahi dam site & Road work at Galiyakot Ring wall.</div>
+
+                <div class="event-date">1976-1978</div>
+                <div class="event-desc event-desc-nth-child">I have taken training of Electrician trade from Industrial training institute (Nation trade certificate).
+
+                    Meanwhile work at P.C.jain &co. civil contractor .job like a site supervisor.
+                    Exevation of Mahi Right main canal[RMC] , at cheapboard location at Banswara to Mahi dam road.</div>
+
+                <div class="event-date">1978-1979</div>
+                <div class="event-desc event-desc-nth-child">Posted at 132 kv GSS sagwara as a sub station attendant</em></div>
+
+                <div class="event-date">1980-1981</div>
+                <div class="event-desc event-desc-nth-child">Worked at banswara in the B.S.Pandya&co.(mamaji) at canal [TRC]
+                    Exevation Civil work for the post of site supervisor.</div>
+
+                <div class="event-date">1981-1982</div>
+                <div class="event-desc event-desc-nth-child">worked at mahi dam site as a Electrician.</div>
+
+                <div class="event-date">1982-1983</div>
+                <div class="event-desc event-desc-nth-child">worked at sidha syntex Ltd. as a Electrician</div>
+
+                <div class="event-date">1983-1984</div>
+                <div class="event-desc event-desc-last-child">worked at Modern thread (India)Ltd.Railla Bhilwara as a Electrician</div>
+
+                <div class="event-date">1984-1985</div>
+                <div class="event-desc event-desc-last-child">worked at sager spinning Mills udaipur as a Electrician</div>
+
+                <div class="event-date">1985-1986</div>
+                <div class="event-desc event-desc-nth-child">worked at sidha syntex Ltd for post of Head Electrician</div>
+
+                <div class="event-date">Feb 1986- Jan2019</div>
+                <div class="event-desc event-desc-nth-child">worded in the Mahi Hydle Project Banswara in the various post as
+                    sub station attandent 2nd
+                    sub station attandend 1st
+                    Junior Engineer 2nd
+                    Assistant Engineer
+                    I have Retiered on 31st Jaunery2019.
+                    
+                    Mean while I have studied of Diploma in Engineering from Institution of mechanical Engineers(India)
+                    
+                    in between I worked after duty as repairing of radio ,b/w televesion,house wiring,power wiring,color televesion and other electrical appliances</div>
+
+                <div class="event-date">Jan2019- till date</div>
+                <div class="event-desc event-desc-nth-child"> I am reading and working in field of Information technology and Want to become a Coder with the help of Youtube</div>
+
+                <div class="event-date"></div>
+                <div class="event-desc event-desc-nth-child">Python, Django,Javescript,Html,css,php</div>
+
+
+
+            </div>
+            <!-- main-content-->
+
+            <div id="side-content">
+
+                <table class="info">
+
+                    <tbody>
+                        <tr>
+                            <th colspan="2" id="nutshell"> IN A NUTSHELL
+                         <img src="{% static 'images/gk1.jpeg' %}" alt="" srcset="" class="img-fluid"></th>
+                        </tr>
+
+                        </tr>
+                        <tr>
+                            <th>
+                                Born
+                            </th>
+                            <td>Gajendra kumar Dave<br> Januvery 10, 1959<br> Saroda Sagawara Dungerpur Rajasthan India.
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <th> Occupation</th>
+                            <td>Woring in verious Engineering fields as technician</td>
+                        </tr>
+                        <tr>
+                            <th>Parents</th>
+                            <td>late sh.pannalal ji s/o late sh.Labh shanker ji s/o late sh.Moji ram ji
+                                Mother name Kanku davi d/o late sh.bapu lal ji pandya .
+                               </td>
+                        </tr>
+                        <tr>
+                            <th>Children</th>
+                            <td> with Bhawana<br> Sonika (b. 1983)<br> Rashmi (b. 1986)<br> Himanshu(b. 1989)<br> Ravi (b. 1991)</td>
+                        </tr>
+                        <!-- <tr>
+                            <th> Cause of <br> death</th>
+                            <td> Pancreatic cancer and <br> respiratory arrest</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+
+
+            </div>
+            <!-- side-content-->
+
+
+        </div>
+        <!-- content div-->
+
+        <div id="footer">
+
+            <div id="quote">
+                <p>"Have the courage to follow your heart and intuition. They somehow know what you truly want to become."<br> Gajender Dave</p>
+                <!-- <p>Do read more about this impeccable personality </p> -->
+            </div>
+
+        </div>
+        <!--footer div-->
+
+    </div>
+    <!-- container div -->
+</body>
+
+</html>
 {% endblock content %}
                     

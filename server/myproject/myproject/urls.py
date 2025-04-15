@@ -18,10 +18,11 @@ admin.site.site_title = "Welcome to daveAdmin"
 
 
 urlpatterns = [
+    path('api/',include('api.urls')),
     path('admin/', admin.site.urls),
     path('',home,name='home'),
     path('abt/',about,name='about'),
     path('serv/',services,name='services'),
     path('user/',include('user.urls')),
     path('emp/',include('emp.urls')),
-]
+]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -38,7 +38,9 @@ urlpatterns = [
     path('services/',services),
     path("emp/",include('emp.urls'))
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+--in django terminal
 
+pip install django-cors-headers
 
 in settings 
 

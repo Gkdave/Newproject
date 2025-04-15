@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const API_URL = "http://127.0.0.1:8000/emp/home/";
+const API_URL = "http://127.0.0.1:8000/api/employees/";
 
-export const getEmployees = () => axios.get(API_URL);
+export const getEmployees=() => axios.get(API_URL);
 
 export const createEmployee = (employee) => axios.post(API_URL, employee);
 

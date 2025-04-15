@@ -22,10 +22,13 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/emp/home/">Employee</a>
         </li>
+        <li><a class="nav-link" style="color:red;" href="/">Portfollio</a>
+              </li>
         {% if user.is_authenticated %}
               <li class="nav-item">
                 <a class="nav-link" href="/"> {{ request.user }}</a>
               </li>
+              
                <li class="nav-item">
                   <a class="nav-link" href="/emp/add-emp/">add employee</a>
               </li>
@@ -38,24 +41,16 @@
               <li class="nav-item">
                 <a class="nav-link" href="/emp/do-feedback/">Add-feedback</a>
               </li>
-              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Home Page 
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/">home</a></li>
-                <li><a class="dropdown-item" href="/abt">About</a></li>
-                <li><a class="dropdown-item" href="/serv/">Services</a></li>
-                <li><hr class="dropdown-divider"></li>
-                
-              </ul>
-            </li>
+    
             <li class="nav-item">
               <a class="nav-link" href="/user/change-password">Change_Password</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/user/logout">Logout</a>
+              <a class="nav-link"  style="color:red;" href="/user/logout">Logout</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" style="color:green;"  href="/api/employees/">API</a>
+            
 
         {% else %}
               <li class="nav-item">
@@ -64,6 +59,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="/user/login">Login</a>
               </li>
+              </li>
+             
         {% endif %}
         
         
