@@ -22,24 +22,28 @@
                                 value="{{emp.name }}">
                             </div>
                             <div class="mb-3">
-                                <label for="id">Employee id</label>
-                                <input id="id" type="text" class="form-control" placeholder="Employee id" name="emp_id"
-                                value="{{ emp.emp_id }}">
+                                <label for="email">Email</label>
+                                <input id="id" type="email" class="form-control" placeholder="Email" name="email"
+                                value="{{emp.email}}">
                             </div>
                             <div class="mb-3">
                                 <label for="phone">Phone</label>
-                                <input id="phone" type="text" class="form-control" placeholder="Enter phone number"
+                                <input id="phone" type="number" class="form-control" placeholder="Enter phone number"
                                 name="emp_phone"
                                 value="{{emp.phone}}">
                             </div>
                             <div class="mb-3">
                                 <label for="address">Employee Address</label>
-                               <textarea name="emp_address" id="address" cols="25" rows="5" class="form-control">{{emp.address}}</textarea>
+                               <input name="emp_address" id="address" cols="25" rows="5" class="form-control">{{emp.address}}</textarea>
                             </div>
-                            <div class="mb-3 form-check">
+                            <div class="mb-3">
+                                <label for="sallary">Sallary</label>
+                               <input type="number" name="emp_sallary" id="sallary"  class="form-control" value="{{ emp.sallary }}">
+                            </div>
+                            {% comment %} <div class="mb-3 form-check">
                                 <label for="working">Working </label>
                                <input {% if emp.working %}checked {% endif %} type="checkbox" name="emp_working" id="working" class="form-check-input">
-                            </div>
+                            </div> {% endcomment %}
                             <div class="mb-3">
                                 <label for="department">Departments </label>
                                <select value="{{employee.department }}" name="emp_department" id="department" class="form-control">

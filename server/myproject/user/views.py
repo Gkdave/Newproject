@@ -3,7 +3,9 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages 
 from django.contrib.auth import authenticate,login,logout 
-from django.contrib.auth.forms import PasswordChangeForm 
+from django.contrib.auth.forms import PasswordChangeForm
+
+
 # Create your views here.
 
 def user_register(request):
@@ -26,6 +28,13 @@ def user_register(request):
             messages.success(request,"user has been register successfully")
             return redirect('login')
     return render(request,'user/register.html')
+
+def user_usr(request):
+    print(request.user)
+    print(request.user.last_name)
+    
+    return render(request,"user/users.html")
+
 
 def user_login(request):
     if request.method=="POST":

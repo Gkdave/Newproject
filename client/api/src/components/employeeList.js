@@ -21,8 +21,8 @@ const EmployeeList = ({ onEdit }) => {
     };
 
     const handleDelete = async (id) => {
-        await deleteEmployee(id);
-        fetchEmployees();
+        deleteEmployee(id);
+        await fetchEmployees();
         toast.success("Data deleted  successfull !!!");
     };
     return (
@@ -41,6 +41,7 @@ const EmployeeList = ({ onEdit }) => {
                                     <th>Sallary</th>
                                     <th>Phone</th>
                                     <th>Address</th>
+                                    <th>Department</th>
                                     
                                 </tr>
                             </thead>
@@ -53,6 +54,7 @@ const EmployeeList = ({ onEdit }) => {
                                         <td>{employee.sallary}</td>
                                         <td>{employee.phone}</td>
                                         <td>{employee.address}</td>
+                                        <td>{employee.department}</td>
                                         
                                         <td>
                                             <button id="edit" onClick={() => onEdit(employee)}>Edit</button>

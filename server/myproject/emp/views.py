@@ -13,10 +13,10 @@ def add_emp(request):
         print('data is comming')
     #data fetch
         emp_name=request.POST.get('emp_name')
-        emp_id=request.POST.get('emp_id')
+        emp_email=request.POST.get('email')
         emp_address=request.POST.get('emp_address')
         emp_phone=request.POST.get('emp_phone')
-        emp_working=request.POST.get('emp_working')
+        emp_sallary=request.POST.get('emp_sallary')
         emp_department=request.POST.get('emp_department')
         # Validtion
 
@@ -24,17 +24,17 @@ def add_emp(request):
 
         e=Emp()
         e.name=emp_name
-        e.emp_id=emp_id
+        e.email=emp_email
         e.phone=emp_phone
         e.address=emp_address
-        e.working=emp_working
+        e.sallary=emp_sallary
         e.department=emp_department 
         
-        if emp_working is None:
-            e.working=False
-        else:
-            e.working=True
-            # save the object
+        # if emp_working is None:
+        #     e.working=False
+        # else:
+        #     e.working=True
+        #     # save the object
 
         e.save()
         #prepare msg
@@ -43,7 +43,7 @@ def add_emp(request):
     form=EmpForm
     return render(request,'emp/add_emp.html',{'form':form}) 
 def delete_emp(request,emp_id):
-    print(emp_id)
+    #print(emp_id)
     emp=Emp.objects.get(pk=emp_id)
     emp.delete()
     return redirect('/emp/home/')

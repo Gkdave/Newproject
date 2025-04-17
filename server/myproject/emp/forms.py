@@ -14,7 +14,7 @@ def __init__(self, *args, **kwargs):
 class EmpForm(forms.ModelForm):
     class Meta:
         model=Emp 
-        fields=['name','emp_id','phone','address','working','department']
+        fields=['name','email','phone','address','sallary','department']
 
 class FeedbackForm(forms.ModelForm):
     class Meta:

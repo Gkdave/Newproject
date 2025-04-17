@@ -6,7 +6,7 @@ import { Container } from 'react-bootstrap';
 
 const EmployeeForm = ({ selectedEmployee, onFormSubmit }) => {
     const [employee, setEmployee] = useState({
-        name: '', email: '', sallary: '', phone: '', address: ''
+        name: '', email: '', sallary: '', phone: '', address: '',department:''
     });
     useEffect(() => {
         if (selectedEmployee) {
@@ -27,7 +27,7 @@ const EmployeeForm = ({ selectedEmployee, onFormSubmit }) => {
             toast.success("Data Created successfully !!!");
         }
         onFormSubmit();
-        setEmployee({ name: '', email: '', sallary: '', phone: '', address: '' });
+        setEmployee({ name: '', email: '', sallary: '', phone: '', address: '',department:'' });
     
 
     };
@@ -43,6 +43,7 @@ const EmployeeForm = ({ selectedEmployee, onFormSubmit }) => {
                 <input type="number" name="sallary" value={employee.sallary} onChange={handleChange} placeholder="sallary" required />
                 <input type="number" name="phone" value={employee.phone} onChange={handleChange} placeholder="Phone number" required />
                 <input type="text" name="address" value={employee.address} onChange={handleChange} placeholder="Address" required />
+                <input type="text" name="department" value={employee.department} onChange={handleChange} placeholder="department" required />
                 <button id="btn-crt" type="submit">{employee.id ? "update" : "Create"}</button>
             </form>
         </>
