@@ -1,15 +1,11 @@
-{% extends "base.html" %}
-
-{% block title %}
-       home page 
-{% endblock %}
-
-
-{% block content %}
-{% comment %} {% static 'images/gk1.jpeg' %} {% endcomment %}
+{% extends 'base.html' %}
+{% load static %}
   
+  {% block content %}
+    
+ 
+    
 <!DOCTYPE html>
- {% load static %}
 <html>
 
 <head>
@@ -197,7 +193,7 @@ a:hover {
     <div id="container">
 
         <div id="header" class="mt-4">
-           <img src="{% static 'images/gk4.jpg' %}" alt="" height="68%"srcset="" class="img-fluid">
+           <img src="{% static 'images/gk4.jpg' %}" alt="" height="100%"srcset="" class="img-fluid">
           </div>
         <!-- header div-->
 
@@ -339,5 +335,5 @@ a:hover {
 </body>
 
 </html>
-{% endblock content %}
+ {% endblock content %}
                     
